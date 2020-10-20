@@ -13,7 +13,7 @@ import javax.persistence.Entity;
 @Data
 @Entity
 /**
- * A value object that represents the total cost of a transation. Intended to be
+ * A value object that represents the total cost of a transaction. Intended to be
  * used in transport to external systems.
  */
 public class Bill {
