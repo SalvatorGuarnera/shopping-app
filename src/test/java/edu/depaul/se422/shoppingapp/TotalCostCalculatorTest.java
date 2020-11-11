@@ -2,6 +2,7 @@ package edu.depaul.se422.shoppingapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import edu.depaul.se433.shoppingapp.ShoppingCart;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -149,6 +150,10 @@ public class TotalCostCalculatorTest {
         );
     }
 
-
+    @Test
+    @DisplayName("Testing calculate with Shopping Cart value.")
+    void shoppingCartTesting(){
+        calculator.calculate(new ShoppingCart(), "OH", ShippingType.NEXT_DAY);
+    }
 
 }

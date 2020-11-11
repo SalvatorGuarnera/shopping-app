@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id "io.freefair.lombok" version "5.1.0"
     id 'org.springframework.boot' version '2.3.3.RELEASE'
+    id 'jacoco'
 }
 
 repositories {
@@ -38,9 +39,23 @@ bootJar {
 def test = tasks.named("test") {
     ignoreFailures(true)
     useJUnitPlatform ()
-
+    finalizedBy jacocoTestReport
     afterTest { desc, result ->
         logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+}
+
+jacocoTestReport{
+    dependsOn test
+}
+
+jacocoTestCoverageVerification{
+    violationRules{
+        rule{
+            limit{
+                minimum = 0.1
+            }
+        }
     }
 }
 
@@ -62,6 +77,9 @@ task packageDistribution(type: Zip) {
 
 check {
     finalizedBy packageDistribution
+    dependsOn{
+        jacocoTestCoverageVerification
+    }
 }
 
 
