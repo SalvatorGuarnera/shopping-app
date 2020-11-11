@@ -2,6 +2,8 @@ package edu.depaul.se422.shoppingapp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import edu.depaul.se433.shoppingapp.ShippingType;
+import edu.depaul.se433.shoppingapp.ShoppingCart;
 import edu.depaul.se433.shoppingapp.TaxCalculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -47,5 +49,6 @@ public class TaxCalculatorTest {
         );
 
     }
+
 
 }
